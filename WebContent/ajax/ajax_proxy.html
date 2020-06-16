@@ -1,0 +1,36 @@
+<!--step02_ajax_json_jquery.html-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax Get Jquery</title>
+    <script type="text/javascript" src="../js/jquery-3.5.1.js"></script>
+</head>
+<script>
+   
+
+    $(function(){
+        $('#btn').click(function(){
+            $.ajax({
+                url : 'proxy.jsp?url=http://openapi.foodsafetykorea.go.kr/api/e1a9c6aa6a764c878b21/C002/json/1/1000',
+                type : 'GET',
+                dataType : 'json',
+                error : function(){
+                    alert('error');
+                },
+                success : function(obj){
+                    
+                    $('#sel').append(JSON.stringify(obj));
+                }
+            });       
+        });
+    });
+</script>
+<body>
+    <button id = "btn">가져오기</button>
+    <div id="sel">
+
+    </div>
+</body>
+</html>

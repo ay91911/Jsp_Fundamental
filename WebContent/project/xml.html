@@ -1,0 +1,48 @@
+<!--team_project-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax Get Jquery</title>
+    <script type="text/javascript" src="../js/jquery-3.5.1.js"></script>
+</head>
+<script>
+   
+
+    $(function(){
+            var address = encodeURIComponent('http://apis.data.go.kr/B552657/ErmctInfoInqireService/getEgytBassInfoInqire?serviceKey=3wueIipeCjdGU%2Fz4ZrbCf2x7Kt71UO7GvHmcnuOEKacmaGG6U6n9gWiSvbM0DtNGtZrXcNlRjIh0UmS9XKzvSQ%3D%3D&pageNo=1&numOfRows=1000&');
+            
+            console.log(address);
+            
+        $('#btn').click(function(){
+            $.ajax({
+                url : 'proxy.jsp?url='+address,
+                type : 'GET',
+                dataType : 'xml',
+                error : function(){
+                    alert('error');
+                },
+                success : function(xml){
+                        console.log(xml);
+                        
+                        $(xml).find("item").each(function(){
+                                //let name = $(this).find("dutyName").text();
+                                //var info = name +"<br/>";
+                                let tel = $(this).find("dutyTel3").text();
+                                var info = tel +"<br/>" + name;
+                                $('#sel').append(info);
+                        });
+                        
+                }
+            });       
+        });
+    });
+</script>
+<body>
+    <button id = "btn">가져오기</button>
+    <div id="sel">
+
+    </div>
+</body>
+</html>
