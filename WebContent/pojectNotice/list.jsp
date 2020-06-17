@@ -53,10 +53,11 @@
 		    				</colgroup>
 						  <thead>
 						    <tr>
-						      <th scope="col">번호</th>
-						      <th scope="col">작성자</th>
-						      <th scope="col">제목</th>
-						      <th scope="col">등록날짜</th>
+								<th scope="col">병원명</th>
+								<th scope="col">응급실</th>
+								<th scope="col">입원실</th>
+								<th scope="col">구급차</th>
+								<th scope="col">전화</th>
 						    </tr>
 						  </thead>
 						  <tbody>

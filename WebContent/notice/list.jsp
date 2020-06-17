@@ -5,6 +5,9 @@
     pageEncoding="UTF-8"%>
 <%@ include file="../inc/header.jsp"%>
 <%
+	int displayCount = 3;
+	int displayPageCount = 4;
+	
 	String tempPage = request.getParameter("page");
 	int cPage = 0;
 	if(tempPage == null || tempPage.length()==0){
@@ -26,8 +29,8 @@
 	*/
 	
 	NoticeDao dao =  NoticeDao.getInstance();
-	int start = (cPage-1)*10; 
-	ArrayList<NoticeDto> list = dao.select(start,10);
+	int start = (cPage-1)*displayCount; 
+	ArrayList<NoticeDto> list = dao.select(start,displayCount);
 	
 %>
 
@@ -64,7 +67,7 @@
 						    <tr>
 						      <th scope="row"><%=dto.getNum() %></th>
 						      <td><%=dto.getWriter() %></td>
-						      <td><a href="view.jsp"><%=dto.getTitle() %></a></td>
+						      <td><a href="view.jsp?page=<%=cPage%>&num=<%=dto.getNum()%>"><%=dto.getTitle() %></a></td>
 						      <td><%=dto.getRegdate() %></td>
 						    </tr>
 						   <%}%> 						    
@@ -77,30 +80,30 @@
 							int currentBlock = 0;
 							int totalBlock = 0;
 							
-							if(totalRows%10==0){
-								totalPage = totalRows/10;
+							if(totalRows%displayCount==0){
+								totalPage = totalRows/displayCount;
 							}else{
-								totalPage = totalRows/10+1;
+								totalPage = totalRows/displayCount+1;
 							}
 							if(totalPage == 0){
 								totalPage =1;
 							}
 							
 							
-							if(cPage % 10 == 0){
-								currentBlock = cPage/10;
+							if(cPage % displayPageCount == 0){
+								currentBlock = cPage/displayPageCount;
 							}else{
-								currentBlock = cPage/10+1;
+								currentBlock = cPage/displayPageCount+1;
 							}
 							
-							if(totalPage%10==0){
-								totalBlock = totalPage/10;
+							if(totalPage%displayPageCount==0){
+								totalBlock = totalPage/displayPageCount;
 							}else{
-								totalBlock = totalPage/10 +1;
+								totalBlock = totalPage/displayPageCount +1;
 							}
 							
-							int startPage = 1+(currentBlock -1)*10;
-							int endPage = 10 +(currentBlock -1)*10;
+							int startPage = 1+(currentBlock -1)*displayPageCount;
+							int endPage = displayPageCount +(currentBlock -1)*displayPageCount;
 							
 							if(currentBlock == totalBlock){
 								endPage = totalPage;
@@ -133,7 +136,7 @@
 							      <a class="page-link" href="#">Next</a>
 							    </li>
 							    <%}else{ %>
-							    <li class="page-item ">
+							    <li class="page-item">
 							      <a class="page-link" href="list.jsp?page=<%=endPage+1%>">Next</a>
 							    </li>
 							    <%} %>
@@ -141,7 +144,7 @@
 							</nav>
 						
 							<div class="text-right" style="margin-bottom: 20px;">
-							<a href="write.jsp" class="btn btn-outline-primary" >글쓰기</a>
+							<a href="write.jsp?page=<%=cPage %>" class="btn btn-outline-primary" >글쓰기</a>
 							</div>
 							</div>
 					</div>

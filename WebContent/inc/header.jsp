@@ -1,3 +1,5 @@
+<%@page import="kr.or.kpc.dto.CustomerDto"%>
+<%@page import="kr.or.kpc.dto.MemberDto"%>
 <%@ page language="java" pageEncoding="UTF-8"%>
 <!doctype html>
 <html lang="en">
@@ -33,11 +35,29 @@
       </li>
       
     </ul>
-    <!-- 
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
-     -->
+  
+    <div class="form-inline my-2 my-lg-0">
+		<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      	<%
+      		CustomerDto CustomerDto = (CustomerDto)session.getAttribute("login");
+      	if(CustomerDto!=null){
+      		
+      	%>
+      		<li class="nav-item active">
+       			<a class="nav-link">
+       			<strong style="color:white"><%=CustomerDto.getName() %></strong>님
+       			</a>
+     		</li>   
+     		<li class="nav-item">
+       			<a class="nav-link" href="/member/logout.jsp">[로그아웃] </a>
+     		</li>   
+     	<%}else{%>
+     		<li class="nav-item">
+       			<a class="nav-link" href="/member/login.jsp">로그인 </a>
+     		</li>
+     	<%}%>	    
+    	</ul>
+    </div>
+  
   </div>
 </nav>
