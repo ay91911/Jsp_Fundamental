@@ -1,11 +1,18 @@
 <%@ page language="java" pageEncoding="UTF-8"%>
 <%@ include file="/project/mainHeader.jsp"%>
 <script type="text/javascript" src="../js/jquery-3.5.1.js"></script>
-                    
-              <div class="container">
+
+<div class="container">
+   <div class="row" style="background-color: #F8F8F8;" >
+      <div class="col-sm-12" style="height:40px">
+         
+      </div>
+   </div>
+ 
+   
    <!-- intro+차트 올 공간 시작 -->
    <div class="row"
-      style="background-color: #F8F8F8; height: 980px;">
+      style="background-color: #F8F8F8; height: 745px;">
       <table class="table table-hover" style="text-align: center;">
          <colgroup>
             <col width="35%" />
@@ -31,6 +38,9 @@
       
    </div>
    <!-- intro+차트 올 공간 끝 -->
+
+
+
 </div>
 
 <nav aria-label="...">
@@ -41,15 +51,16 @@
         <span class="sr-only">(current)</span>
       </span>
     </li>
-    <%for(int i=2;i<22;i++){ %>
+    <%for(int i=2;i<28;i++){ %>
     <li class="page-item"><a class="page-link" href="javascript:call('<%=i%>')"><%=i %></a></li>
-	<%} %>
+   <%} %>
   </ul>
 </nav>
+
                     
                    <script>
                     
-                    var address = encodeURIComponent('http://apis.data.go.kr/B552657/ErmctInfoInqireService/getEmrrmRltmUsefulSckbdInfoInqire?serviceKey=s5f25rkgZmeg3PC1sixLX7%2B6iWHyi5W7jVhufWw0NYq%2BY2HbEP7J4FhyMqcfxQYsa8g0yvJVPujXtpVAMtUoWg%3D%3D&STAGE1=&STAGE2=&pageNo=1&numOfRows=20&');
+                    var address = encodeURIComponent('http://apis.data.go.kr/B552657/ErmctInfoInqireService/getEmrrmRltmUsefulSckbdInfoInqire?serviceKey=s5f25rkgZmeg3PC1sixLX7%2B6iWHyi5W7jVhufWw0NYq%2BY2HbEP7J4FhyMqcfxQYsa8g0yvJVPujXtpVAMtUoWg%3D%3D&STAGE1=&STAGE2=&pageNo=1&numOfRows=15&');
                         
                         // console.log(address);
                         
@@ -88,7 +99,7 @@
                         });  
                         
                         function call(p){
-                            var address = encodeURIComponent('http://apis.data.go.kr/B552657/ErmctInfoInqireService/getEmrrmRltmUsefulSckbdInfoInqire?serviceKey=s5f25rkgZmeg3PC1sixLX7%2B6iWHyi5W7jVhufWw0NYq%2BY2HbEP7J4FhyMqcfxQYsa8g0yvJVPujXtpVAMtUoWg%3D%3D&STAGE1=&STAGE2=&pageNo='+p+'&numOfRows=20&');
+                            var address = encodeURIComponent('http://apis.data.go.kr/B552657/ErmctInfoInqireService/getEmrrmRltmUsefulSckbdInfoInqire?serviceKey=s5f25rkgZmeg3PC1sixLX7%2B6iWHyi5W7jVhufWw0NYq%2BY2HbEP7J4FhyMqcfxQYsa8g0yvJVPujXtpVAMtUoWg%3D%3D&STAGE1=&STAGE2=&pageNo='+p+'&numOfRows=15&');
                               
                            
                            $.ajax({
@@ -128,4 +139,3 @@
                         }
                      
                     </script>
-                    

@@ -1,4 +1,3 @@
-
 <%@ page language="java" pageEncoding="UTF-8"%>
 <%@ include file="/project/projectHeader.jsp"%>
 <script type="text/javascript" src="../js/jquery-3.5.1.js"></script>
@@ -22,26 +21,32 @@
          integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
          crossorigin="anonymous"></script>
 
-<!-- 검색창 시작 -->
 <div class="container">
-  <h5 class="card-title">응급실 현황 검색</h5>
+<!-- 검색창 시작 -->
+   <div class="row" style="background-color: #F8F8F8;" >
+      <div class="col-sm-12" style="height:40px">
+         
+      </div>
+   </div>
+   <div class="row" style="background-color: #F8F8F8;">
+      <div class="col-sm-12"  >
          <div class="form-row d-flex align-items-center">
             <div class="form-group col-md-10">
                <input type="text" id="address" name="address" class="form-control"
                   placeholder="주소를 입력하세요." />
             </div>
-            <div class="form-group col-sm-2">
+            <div class="form-group col-md-2">
                <a href="resultPage.jsp" id="search" class="btn btn-outline-primary">
                   <i class="fa fa-search" aria-hidden="true"></i> 검색 </a>
             </div>
          </div>
+      </div>
+   </div>
 
-                    
-<!-- 차트 공간 시작 -->
-   <div class="container">
    <div class="row"
-      style="background-color: #F8F8F8; height: 500px;">
-      <table class="table table-hover" style="text-align: center;">
+      style="background-color: #F8F8F8; height: 500px; ">
+      <div class="col-sm-12">
+         <table class="table table-hover" style="text-align: center;">
          <colgroup>
             <col width="35%" />
             <col width="10%" />
@@ -62,17 +67,17 @@
          </tbody>
          
       </table>
+      </div>
    </div>
 </div>
 <!-- 차트 공간 끝 -->
+
                    <script>
                   $("#address").keydown(function(key) {
-
                   if (key.keyCode == 13) {
                      $('#search').trigger("click");
                   
                   }
-
                });
                   $('#search').bind('click', function(){
                   if($('#address').val()==""){
@@ -120,4 +125,3 @@
                     
                         
                     </script>
-                    

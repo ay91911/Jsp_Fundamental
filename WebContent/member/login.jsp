@@ -3,9 +3,8 @@
 <%@ include file="../inc/header.jsp"%>
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb justify-content-end">
-    <li class="breadcrumb-item"><a href="#">Home</a></li>
-    <li class="breadcrumb-item"><a href="#">Library</a></li>
-    <li class="breadcrumb-item active" aria-current="page">Data</li>
+    <li class="breadcrumb-item"><a href="#">홈</a></li>
+    <li class="breadcrumb-item active" aria-current="page">로그인</li>
   </ol>
 </nav>
     <div class="container">

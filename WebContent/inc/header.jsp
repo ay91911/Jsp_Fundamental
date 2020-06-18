@@ -39,21 +39,27 @@
     <div class="form-inline my-2 my-lg-0">
 		<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
       	<%
-      		CustomerDto CustomerDto = (CustomerDto)session.getAttribute("login");
-      	if(CustomerDto!=null){
+      		CustomerDto customerDto = (CustomerDto)session.getAttribute("login");
+      	if(customerDto!=null){
       		
       	%>
       		<li class="nav-item active">
        			<a class="nav-link">
-       			<strong style="color:white"><%=CustomerDto.getName() %></strong>님
+       			<strong style="color:white"><%=customerDto.getName() %></strong>님
        			</a>
      		</li>   
      		<li class="nav-item">
        			<a class="nav-link" href="/member/logout.jsp">[로그아웃] </a>
      		</li>   
+     		<li class="nav-item">
+       			<a class="nav-link" href="/member/myPage_pwd.jsp">[마이페이지] </a>
+     		</li> 
      	<%}else{%>
      		<li class="nav-item">
        			<a class="nav-link" href="/member/login.jsp">로그인 </a>
+     		</li>
+     		<li class="nav-item">
+       			<a class="nav-link" href="/member/login.jsp">회원가입 </a>
      		</li>
      	<%}%>	    
     	</ul>
