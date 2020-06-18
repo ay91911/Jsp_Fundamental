@@ -51,6 +51,13 @@
 </head>
 <body>
 
+<div class="container">
+   <div class="row" style="background-color: #F8F8F8;" >
+      <div class="col-sm-12" style="height:40px">
+         
+      </div>
+   </div>
+   
 <div class="map_wrap">
     <div id="map" style="width:100%;height:100%;position:relative;overflow:hidden;"></div>
 
@@ -67,6 +74,7 @@
         <ul id="placesList"></ul>
         <div id="pagination"></div>
     </div>
+</div>
 </div>
 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7d93c975c90699493dd38cd0e48d605d&libraries=services"></script>
